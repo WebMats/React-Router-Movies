@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class SavedList extends Component {
+class SavedList extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,8 +13,10 @@ export default class SavedList extends Component {
         {this.props.list.map(movie => (
           <span className="saved-movie">{movie.title}</span>
         ))}
-        <div className="home-button">Home</div>
+        <div className="home-button" onClick={() => {this.props.history.push("/")}}>Home</div>
       </div>
     );
   }
 }
+
+export default withRouter(SavedList);
